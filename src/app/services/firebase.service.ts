@@ -16,24 +16,17 @@ export class FirebaseService {
     this.user = this.afAuth.authState;
   }
 
-
   getItems() {
     this.items = this.db.list('/listings');
     return this.items;
   }
 
-  // login() {
-  //   console.log('login');
-  //   this.afAuth.auth.signInAnonymously();
-  // }
-
-  // logout() {
-  //   console.log('logout');
-  //   this.afAuth.auth.signOut();
-  // }
-
   addNewItem(itemText: string) {
-    this.items.push(new Item(itemText));
+    if (itemText == null || itemText == undefined || itemText.trim() == "") {
+      return;
+    } else {
+      this.items.push(new Item(itemText));
+    }
   }
 
   deleteItem(key: string) {

@@ -9,7 +9,6 @@ import { FirebaseService } from '../../services/firebase.service';
 })
 export class ListComponent implements OnInit {
 
-  state = 'default';
   items: any;
 
   constructor(private _firebaseService: FirebaseService) { }
@@ -20,31 +19,6 @@ export class ListComponent implements OnInit {
       console.log(this.items)
     });
   }
-
-  editItem() {
-    this.state = 'edit';
-  }
-
-  deleteItem() {
-    this.state = 'delete';
-  }
-
-  cancelAction() {
-    this.state = 'default';
-  }
-
-  confirmDelete(key: string) {
-    this._firebaseService.deleteItem(key);
-    this.state = 'default';
-  }
-
-  confirmEdit(key: string, itemText: string) {
-    this._firebaseService.editItem(key, itemText);
-    this.state = 'default';
-  }
-
-
-
 
 
 

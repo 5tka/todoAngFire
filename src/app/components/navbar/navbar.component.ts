@@ -9,21 +9,10 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor
-    (
-    private _firebaseService: FirebaseService,
-    // private afAuth: AngularFireAuth
-  ) { }
+  constructor() { }
 
   ngOnInit() {
+
   }
-
-  // login() {
-  //   this._firebaseService.login();
-  // }
-
-  // logout() {
-  //   this._firebaseService.logout();
-  // }
 
 }

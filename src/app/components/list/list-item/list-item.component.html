@@ -1,10 +1,21 @@
 <li class="list-group-item">
-  <p class="text-primary">
+  <p class="text-primary" *ngIf="state === 'default' || state === 'delete'">
     {{listItem.title}}
   </p>
-  <div class="btn-group" role="group">
-      <input type="checkbox" name="listItem.id" (click)='sendConfirmation()' >
-      <a href="#" class="btn btn-primary">Primary</a>
-      <a href="#" class="btn btn-danger">Danger</a>
-    </div>
+  <div class="input-group" *ngIf="state === 'edit'">
+    <input type="text" [(ngModel)]="listItem.title" class="form-control">
+  </div>
+  <div class="btn-group" role="group" *ngIf="state === 'default'">
+    <input type="checkbox" name="listItem.id" (click)='sendConfirmation()'>
+    <a href="#" (click)="editItem()" class="btn btn-primary">Изменить</a>
+    <a href="#" (click)="deleteItem()" class="btn btn-danger">Удалить</a>
+  </div>
+  <div class="btn-group" role="group" *ngIf="state === 'edit'">
+    <a href="#" (click)="confirmEdit(listItem.$key, listItem.title)" class="btn btn-success">Применить</a>
+    <a href="#" (click)="cancelAction()" class="btn btn-danger">Отмена</a>
+  </div>
+  <div class="btn-group" role="group" *ngIf="state === 'delete'">
+    <a href="#" (click)="confirmDelete(listItem.$key)" class="btn btn-success">Подтвердить</a>
+    <a href="#" (click)="cancelAction()" class="btn btn-danger">Отмена</a>
+  </div>
 </li>
