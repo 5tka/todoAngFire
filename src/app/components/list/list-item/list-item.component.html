@@ -2,6 +2,7 @@
   <p class="text-primary" *ngIf="state === 'default' || state === 'delete'">
     {{listItem.title}}
   </p>
+<<<<<<< HEAD
   <div class="input-group" *ngIf="state === 'edit'">
     <input type="text" [(ngModel)]="listItem.title" class="form-control">
   </div>
@@ -19,3 +20,11 @@
     <a href="#" (click)="cancelAction()" class="btn btn-danger">Отмена</a>
   </div>
 </li>
+=======
+  <div class="btn-group" role="group">
+      <input type="checkbox" name="listItem.$key" (click)='sendConfirmation()' [checked]='listItem.done' >
+      <a href="#" class="btn btn-primary">Primary</a>
+      <a href="#" class="btn btn-danger">Danger</a>
+    </div>
+</li>
+>>>>>>> 8cb38177961e0615c3f2b944ee0a0c1f499d3cf8
