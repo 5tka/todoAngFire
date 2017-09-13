@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-// import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
@@ -10,6 +9,7 @@ import { FirebaseService } from '../../services/firebase.service';
 })
 export class ListComponent implements OnInit {
 
+  state = 'default';
   items: any;
 
   constructor(private _firebaseService: FirebaseService) { }
@@ -19,5 +19,32 @@ export class ListComponent implements OnInit {
       this.items = items;
     });
   }
+
+  editItem() {
+    this.state = 'edit';
+  }
+
+  deleteItem() {
+    this.state = 'delete';
+  }
+
+  cancelAction() {
+    this.state = 'default';
+  }
+
+  confirmDelete(key: string) {
+    this._firebaseService.deleteItem(key);
+    this.state = 'default';
+  }
+
+  confirmEdit(key: string, itemText: string) {
+    this._firebaseService.editItem(key, itemText);
+    this.state = 'default';
+  }
+
+
+
+
+
 
 }

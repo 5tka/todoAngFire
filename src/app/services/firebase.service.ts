@@ -33,7 +33,14 @@ export class FirebaseService {
   // }
 
   addNewItem(itemText: string) {
-    console.log(itemText);
     this.items.push(new Item(itemText));
+  }
+
+  deleteItem(key: string) {
+    this.items.remove(key);
+  }
+
+  editItem(key: string, itemText: string) {
+    this.items.update(key, { title: itemText });
   }
 }

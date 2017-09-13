@@ -4,12 +4,23 @@
       <div class="list-wrap">
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let item of items">
-            <p class="text-primary">
+            <p class="text-primary" *ngIf="state === 'default'">
               {{item.title}}
             </p>
-            <div class="btn-group" role="group">
-              <a href="#" class="btn btn-primary">Primary</a>
-              <a href="#" class="btn btn-danger">Danger</a>
+            <div class="input-group" *ngIf="state === 'edit'">
+              <input type="text" [(ngModel)]="item.title" class="form-control">
+            </div>
+            <div class="btn-group" role="group" *ngIf="state === 'default'">
+              <a href="#" (click)="editItem()" class="btn btn-primary">Изменить</a>
+              <a href="#" (click)="deleteItem()" class="btn btn-danger">Удалить</a>
+            </div>
+            <div class="btn-group" role="group" *ngIf="state === 'edit'">
+              <a href="#" (click)="confirmEdit(item.$key, item.title)" class="btn btn-success">Применить</a>
+              <a href="#" (click)="cancelAction()" class="btn btn-danger">Отмена</a>
+            </div>
+            <div class="btn-group" role="group" *ngIf="state === 'delete'">
+              <a href="#" (click)="confirmDelete(item.$key)" class="btn btn-danger">Удалить</a>
+              <a href="#" (click)="cancelAction()" class="btn btn-success">Отмена</a>
             </div>
           </li>
         </ul>
