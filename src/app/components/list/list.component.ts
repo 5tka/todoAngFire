@@ -18,6 +18,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this._firebaseService.getItems().subscribe(items =>{
       this.items = items;
+      console.log(this.items)
     })
   }
 
