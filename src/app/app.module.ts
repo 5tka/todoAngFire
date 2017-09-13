@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { ListComponent } from './components/list/list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListItemComponent } from './components/list/list-item/list-item.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 
 import { FirebaseService } from './services/firebase.service';
@@ -23,6 +24,7 @@ import { FirebaseService } from './services/firebase.service';
     AppComponent,
     ListComponent,
     NavbarComponent,
+    ListItemComponent,
     AddItemComponent
   ],
   imports: [

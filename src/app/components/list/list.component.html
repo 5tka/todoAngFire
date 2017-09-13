@@ -3,6 +3,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="list-wrap">
         <ul class="list-group">
+<<<<<<< HEAD
           <li class="list-group-item" *ngFor="let item of items">
             <p class="text-primary" *ngIf="state === 'default'">
               {{item.title}}
@@ -23,6 +24,9 @@
               <a href="#" (click)="cancelAction()" class="btn btn-success">Отмена</a>
             </div>
           </li>
+=======
+          <list-item [listItem]="item" *ngFor="let item of items"></list-item>
+>>>>>>> b60c99311a3501795cfa09f09e991147e495a9c2
         </ul>
       </div>
     </div>
