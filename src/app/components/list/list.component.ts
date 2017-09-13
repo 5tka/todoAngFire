@@ -6,20 +6,19 @@ import { FirebaseService } from '../../services/firebase.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css'],
-  providers: [FirebaseService]
+  styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
 
   items: any;
 
-  constructor(private _firebaseService: FirebaseService ) {  }
+  constructor(private _firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    this._firebaseService.getItems().subscribe(items =>{
+    this._firebaseService.getItems().subscribe(items => {
       this.items = items;
       console.log(this.items)
-    })
+    });
   }
 
 }

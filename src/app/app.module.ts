@@ -14,13 +14,18 @@ import { environment } from '../environments/environment';
 import { ListComponent } from './components/list/list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ListItemComponent } from './components/list/list-item/list-item.component';
+import { AddItemComponent } from './components/add-item/add-item.component';
+
+import { FirebaseService } from './services/firebase.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     NavbarComponent,
-    ListItemComponent
+    ListItemComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,7 @@ import { ListItemComponent } from './components/list/list-item/list-item.compone
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

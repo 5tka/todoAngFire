@@ -1,4 +1,10 @@
-<li class="list-group-item" >
-  <input type="checkbox" name="item.id" (click)='sendConfirmation()' >
-  {{listItem.title}}
+<li class="list-group-item">
+  <p class="text-primary">
+    {{listItem.title}}
+  </p>
+  <div class="btn-group" role="group">
+      <input type="checkbox" name="listItem.id" (click)='sendConfirmation()' >
+      <a href="#" class="btn btn-primary">Primary</a>
+      <a href="#" class="btn btn-danger">Danger</a>
+    </div>
 </li>
