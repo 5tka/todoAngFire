@@ -7,7 +7,7 @@ import { FirebaseService } from '../../../services/firebase.service';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
-  @Input() listItem: object;
+  @Input() listItem: any;
 
   constructor(private _firebaseService: FirebaseService ) { }
 
@@ -15,7 +15,9 @@ export class ListItemComponent implements OnInit {
   }
   
   sendConfirmation () {
-
+    this.listItem.done = this.listItem.done ? false : true;
+    
+    this._firebaseService.updateItem({key: this.listItem.$key, status: this.listItem.done})
   }
 
 }

@@ -3,7 +3,7 @@
     {{listItem.title}}
   </p>
   <div class="btn-group" role="group">
-      <input type="checkbox" name="listItem.id" (click)='sendConfirmation()' >
+      <input type="checkbox" name="listItem.$key" (click)='sendConfirmation()' [checked]='listItem.done' >
       <a href="#" class="btn btn-primary">Primary</a>
       <a href="#" class="btn btn-danger">Danger</a>
     </div>
