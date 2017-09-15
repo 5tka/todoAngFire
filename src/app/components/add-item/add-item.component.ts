@@ -7,16 +7,16 @@ import { FirebaseService } from '../../services/firebase.service';
 })
 export class AddItemComponent implements OnInit {
 
-  inputText: string = '';
+  itemText: string = '';
 
   constructor(private _firebaseService: FirebaseService) { }
 
   ngOnInit() {
   }
 
-  addNewItem(inputText: string) {
-    this._firebaseService.addNewItem(inputText);
-    inputText = '';
+  addNewItem(itemText: string) {
+    this._firebaseService.addNewItem(itemText);
+    this.itemText = '';
   }
 
 }

@@ -28,9 +28,8 @@ export class FirebaseService {
       this.items.push(new Item(itemText));
     }
   }
-  
+
   updateItem(item: any) {
-    console.log(item);
     this.items.update(item.key, { done: item.status });
   }
 

@@ -1,30 +1,36 @@
 <li class="list-group-item">
-  <p class="text-primary" *ngIf="state === 'default' || state === 'delete'">
-    {{listItem.title}}
-  </p>
-<<<<<<< HEAD
-  <div class="input-group" *ngIf="state === 'edit'">
-    <input type="text" [(ngModel)]="listItem.title" class="form-control">
-  </div>
-  <div class="btn-group" role="group" *ngIf="state === 'default'">
-    <input type="checkbox" name="listItem.id" (click)='sendConfirmation()'>
-    <a href="#" (click)="editItem()" class="btn btn-primary">Изменить</a>
-    <a href="#" (click)="deleteItem()" class="btn btn-danger">Удалить</a>
-  </div>
-  <div class="btn-group" role="group" *ngIf="state === 'edit'">
-    <a href="#" (click)="confirmEdit(listItem.$key, listItem.title)" class="btn btn-success">Применить</a>
-    <a href="#" (click)="cancelAction()" class="btn btn-danger">Отмена</a>
-  </div>
-  <div class="btn-group" role="group" *ngIf="state === 'delete'">
-    <a href="#" (click)="confirmDelete(listItem.$key)" class="btn btn-success">Подтвердить</a>
-    <a href="#" (click)="cancelAction()" class="btn btn-danger">Отмена</a>
-  </div>
-</li>
-=======
-  <div class="btn-group" role="group">
-      <input type="checkbox" name="listItem.$key" (click)='sendConfirmation()' [checked]='listItem.done' >
-      <a href="#" class="btn btn-primary">Primary</a>
-      <a href="#" class="btn btn-danger">Danger</a>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6">
+        <p class="text-primary" *ngIf="state === 'default'">
+          {{listItem.title}}
+        </p>
+        <p class="text-primary" *ngIf="state === 'delete'">
+          {{listItem.title}}
+        </p>
+        <div class="input-group" *ngIf="state === 'edit'">
+          <input type="text" [(ngModel)]="listItem.title" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="btn-group" role="group" *ngIf="state === 'default'">
+          <a (click)="editItem(listItem.title)" class="btn btn-primary">Изменить</a>
+          <a (click)="deleteItem()" class="btn btn-danger">Удалить</a>
+        </div>
+        <div class="btn-group" role="group" *ngIf="state === 'edit'">
+          <a (click)="confirmEdit(listItem.$key, listItem.title)" class="btn btn-success">Применить</a>
+          <a (click)="cancelEdit()" class="btn btn-danger">Отмена</a>
+        </div>
+        <div class="btn-group" role="group" *ngIf="state === 'delete'">
+          <a (click)="confirmDelete(listItem.$key)" class="btn btn-success">Подтвердить</a>
+          <a (click)="cancelDelete()" class="btn btn-danger">Отмена</a>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="btn-group" role="group" *ngIf="state === 'default'">
+          <input type="checkbox" name="listItem.$key" (click)='sendConfirmation()' [checked]='listItem.done'>
+        </div>
+      </div>
     </div>
+  </div>
 </li>
->>>>>>> 8cb38177961e0615c3f2b944ee0a0c1f499d3cf8

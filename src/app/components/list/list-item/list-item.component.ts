@@ -10,43 +10,40 @@ export class ListItemComponent implements OnInit {
   @Input() listItem: any;
 
   constructor(private _firebaseService: FirebaseService) { }
+
+  oldText: string = '';
   state = 'default';
 
   ngOnInit() {
   }
-<<<<<<< HEAD
 
   sendConfirmation() {
-
+    this.listItem.done = this.listItem.done ? false : true;
+    this._firebaseService.updateItem({ key: this.listItem.$key, status: this.listItem.done })
   }
 
-  editItem() {
+  editItem(itemText: string) {
     this.state = 'edit';
+    this.oldText = this.listItem.title;
   }
-
   deleteItem() {
     this.state = 'delete';
   }
-
-  cancelAction() {
+  cancelEdit() {
+    this.state = 'default';
+    this.listItem.title = this.oldText;
+  }
+  cancelDelete() {
     this.state = 'default';
   }
-
+  confirmEdit(key: string, itemText: string) {
+    this._firebaseService.editItem(key, itemText);
+    this.state = 'default';
+  }
   confirmDelete(key: string) {
     this._firebaseService.deleteItem(key);
     this.state = 'default';
   }
 
-  confirmEdit(key: string, itemText: string) {
-    this._firebaseService.editItem(key, itemText);
-    this.state = 'default';
-=======
-  
-  sendConfirmation () {
-    this.listItem.done = this.listItem.done ? false : true;
-    
-    this._firebaseService.updateItem({key: this.listItem.$key, status: this.listItem.done})
->>>>>>> 8cb38177961e0615c3f2b944ee0a0c1f499d3cf8
-  }
 
 }
